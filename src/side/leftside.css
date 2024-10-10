@@ -1,0 +1,49 @@
+/* leftside.css */
+.left-sidebar {
+    width: 250px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-right: 1px solid #e1e1e1;
+  }
+  
+  .sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-menu ul li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .sidebar-menu ul li a:hover {
+    color: #007bff;
+  }
+  
+  .stablecoins {
+    font-weight: bold;
+  }
+  
+  .stablecoins ul {
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 10px;
+  }
+  
+  .stablecoins ul li {
+    margin-bottom: 10px;
+  }
+  
+  .stablecoins ul li a {
+    color: #555;
+  }
+  
+  .stablecoins ul li a:hover {
+    color: #007bff;
+  }
