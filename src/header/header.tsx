@@ -4,13 +4,16 @@ import './header.css';
 
 interface HeaderProps {
   blockHeight: string;
+  refresh: boolean;
   onGetBlockHeight: () => void;
+  onButtonRefresh: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ blockHeight, onGetBlockHeight }) => {
+const Header: React.FC<HeaderProps> = ({ blockHeight, refresh, onGetBlockHeight, onButtonRefresh }) => {
+
   function onClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    onGetBlockHeight();
+    onButtonRefresh();
   }
 
   return (
@@ -20,7 +23,8 @@ const Header: React.FC<HeaderProps> = ({ blockHeight, onGetBlockHeight }) => {
       </div>
       <div className="header-block-height">
         <span>Block Height: {blockHeight}</span>
-        <button className="block-height-btn" onClick={onClick}>Get Current Block Height</button>
+        <button className="block-height-btn" onClick={onClick}>{refresh ? "Stop Refreshing" : "Refresh"} Block Height</button>
+
       </div>
       <div className="header-menu">
         <nav>
