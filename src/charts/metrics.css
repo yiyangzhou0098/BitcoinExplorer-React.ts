@@ -1,0 +1,42 @@
+/* metrics.css */
+.metrics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.metrics-container h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.metrics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.metric-item {
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+}
+
+.metric-title {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+  color: #333;
+  font-weight: 600;
+}
