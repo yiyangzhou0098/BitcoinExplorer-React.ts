@@ -71,6 +71,8 @@
 # # Run the application.
 # CMD npm run dev
 
+
+
 # Use the official Node.js image as the base image
 ARG NODE_VERSION=20.18.0
 

@@ -9,4 +9,4 @@ export default defineConfig({
     port: 5173 ,
     proxy: { 
       '/api': { 
-        target: 'http://localhost:3030', }, }, }, });
+        target: 'http://backend-rust:3030', }, }, }, });
