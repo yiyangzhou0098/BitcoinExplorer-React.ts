@@ -23,7 +23,7 @@ interface fee_estimations {
         'content-type': 'application/json',
         },
     })
-    .catch( err => Promise.reject({ error: 'network-error' }) )
+    .catch( err => Promise.reject({ error: err }) )
     .then( response => {
         if(!response.ok) {
             return response.json()
@@ -49,7 +49,7 @@ export function fetchAllTxData(): Promise<chart_daily_tx_count[]> {
         'content-type': 'application/json',
         },
     })
-    .catch( err => Promise.reject({ error: 'network-error' }) )
+    .catch( err => Promise.reject({ error: err }) )
     .then( response => {
         if(!response.ok) {
             return response.json()

@@ -1,6 +1,4 @@
-interface block_info {
-    block_height: string;
-}
+
 
 export function fetchBlockHeight() {
     return fetch('/api/block_info/block_height', {
@@ -9,7 +7,7 @@ export function fetchBlockHeight() {
         'content-type': 'application/json',
         },
     })
-    .catch( err => Promise.reject({ error: 'network-error' }) )
+    .catch( err => Promise.reject({ error: err }) )
     .then( response => {
         if(!response.ok) {
             return response.json()
