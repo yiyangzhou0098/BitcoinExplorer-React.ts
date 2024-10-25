@@ -42,7 +42,9 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 
 # Copy the rest of the source files into the image.
 COPY . .
+COPY package.json .
 # Run the build script.
+RUN npm install
 RUN npm run build
 
 ################################################################################
@@ -57,7 +59,7 @@ ENV NODE_ENV production
 USER node
 
 # Copy package.json so that package manager commands can be used.
-COPY package.json .
+# COPY package.json .
 
 # Copy the production dependencies from the deps stage and also
 # the built application from the build stage into the image.
