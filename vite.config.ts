@@ -9,4 +9,4 @@ export default defineConfig({
     port: 5173 ,
     proxy: { 
       '/api': { 
-        target: 'http://38.42.241.37:3030', }, }, }, });
+        target: 'http://bc-backend-service:3030', }, }, }, });
