@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ blockHeight, onGetBlockHeight }) => {
       </div>
       <div className="header-block-height">
         <span>Block Height: {blockHeight}</span>
-        <button className="block-height-btn" onClick={onClick}>Get Current Block Height</button>
+        <button className="block-height-btn" onClick={onClick}>Refresh Block Height</button>
       </div>
       <div className="header-menu">
         <nav>
