@@ -1,6 +1,7 @@
 /* header.tsx */
 import React from 'react';
 import './header.css';
+import { useState, useRef, useEffect } from 'react';
 
 interface HeaderProps {
   blockHeight: string;
@@ -8,10 +9,41 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ blockHeight, onGetBlockHeight }) => {
+
+  const [refresh, setRefresh] = useState(false);
+  const pollingRef = useRef<number | null>(null); 
+  
   function onClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    onGetBlockHeight();
+    setRefresh(prevRefresh => !prevRefresh);
   }
+
+  useEffect(() => {
+    if (refresh) {
+      // Start polling every 3 seconds
+      pollingRef.current = window.setInterval(() => {
+        console.log("getting block height")
+        onGetBlockHeight();
+      }, 3000);
+    } else {
+      // Clear polling when `refresh` is false
+      console.log("stop getting block height")
+
+      if (pollingRef.current) {
+        console.log("stop getting block height")
+        clearInterval(pollingRef.current);
+        pollingRef.current = null;
+      }
+    }
+
+    // Cleanup interval on component unmount
+    return () => {
+      if (pollingRef.current) {
+        clearInterval(pollingRef.current);
+        pollingRef.current = null;
+      }
+    };
+  }, [refresh]);
 
   return (
     <header className="header">
@@ -20,7 +52,8 @@ const Header: React.FC<HeaderProps> = ({ blockHeight, onGetBlockHeight }) => {
       </div>
       <div className="header-block-height">
         <span>Block Height: {blockHeight}</span>
-        <button className="block-height-btn" onClick={onClick}>Refresh Block Height</button>
+        <button className="block-height-btn" onClick={onClick}>{refresh ? "Stop Refreshing" : "Refresh"} Block Height</button>
+
       </div>
       <div className="header-menu">
         <nav>
